@@ -19,27 +19,32 @@ public:
             head = NewNode;
             NewNode->next = head;
         }else{
-            NewNode->next = head;
-            head = NewNode;
             
+            Node* currentNode = head;
+            while (currentNode->next != head) {
+                currentNode = currentNode->next;
+            }
+            currentNode->next = NewNode;
+            NewNode->next = head;
+            return 0;
         }
         
         return val;
     }
     
-//    void print(){
-        
-//        Node* currentNode = head;
-//        cout << "print starts" <<endl;
-//        while (currentNode->next != head) {
-//            cout << currentNode->data << endl;
-//            currentNode = currentNode->next;
-//        }
-//
-//        cout << currentNode->data <<endl;
-//        cout << "print ends" <<endl;
-        
-//    }
+    void print(){
+
+        Node* currentNode = head;
+        cout << "print starts" <<endl;
+        while (currentNode->next != head) {
+            cout << currentNode->data << endl;
+            currentNode = currentNode->next;
+        }
+
+        cout << currentNode->data <<endl;
+        cout << "print ends" <<endl;
+
+    }
     
     
 };
@@ -53,5 +58,7 @@ int main(int argc, const char * argv[]) {
     CircleList1->add(13);
     CircleList1->add(14);
 
-//    CircleList1->print();
+    CircleList1->print();
+    
+    cout << "number : " << CircleList1->head->next->next->next->next->next->next->next->next->next->next->data <<endl;
 }
