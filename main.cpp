@@ -66,7 +66,7 @@ public:
 
     int removeTop(){
         Node* currentNode = head;
-        while (currentNode != head)
+        while (currentNode->next != head)
         {
             currentNode = currentNode->next;
         }
@@ -146,10 +146,10 @@ int main(int argc, const char * argv[]) {
     CircleList1->addAtTop(22);
     CircleList1->addAt(77,3);
 
-    cout << "removed : " << CircleList1->removeBottom() << endl;
+    cout << "removed bottom value : " << CircleList1->removeBottom() << endl;
     CircleList1->removeTop();
     CircleList1->print();
     // CircleList1->printLoop(20);
     
-    cout << "size of list : " << CircleList1->size() <<endl;
+    cout << "size of list : " << CircleList1->size() << endl;
 }
