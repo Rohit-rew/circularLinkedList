@@ -10,6 +10,23 @@ public :
 class CircleLinkedList{
 public:
     Node* head;
+
+    int valueAt(int index){
+        if(index == 0){
+            return head->data;
+        }
+        int count = 0;
+        Node* currentNode = head;
+        while (count != index)
+        {
+            currentNode = currentNode->next;
+            count++;
+        }
+
+        int currentValue = currentNode->data;
+        return currentValue;
+        
+    }
     
     int addAtEnd(int val){
         Node* NewNode = new Node();
@@ -96,7 +113,6 @@ public:
         }else if(index == size()){
             return removeBottom();
         }
-
         int count = 0;
         Node* currentNode = head;
         while (count != index-1)
@@ -104,11 +120,9 @@ public:
             currentNode = currentNode->next;
             count++;
         }
-
         int removedVal = currentNode->next->data;
         currentNode->next = currentNode->next->next;
         return removedVal;
-        
     }
 
     
@@ -168,5 +182,6 @@ int main(int argc, const char * argv[]) {
     CircleList1->print();
     // CircleList1->printLoop(20);
     
+    cout << CircleList1->valueAt(2) << endl;
     cout << "size of list : " << CircleList1->size() << endl;
 }
