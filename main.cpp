@@ -125,6 +125,21 @@ public:
         return removedVal;
     }
 
+    int search(int val){
+        Node* currentNode = head;
+        int count = 0;
+        while (currentNode->next != head)
+        {
+            if(currentNode->data==val){
+                return count;
+            }
+            currentNode = currentNode->next;
+            count++;
+        }
+
+        return NULL;
+    }
+
     
     void print(){
         Node* currentNode = head;
@@ -171,6 +186,9 @@ int main(int argc, const char * argv[]) {
     CircleList1->addAtEnd(10);
     CircleList1->addAtEnd(11);
     CircleList1->addAtEnd(12);
+    CircleList1->addAtEnd(44);
+    CircleList1->addAtEnd(55);
+    CircleList1->addAtEnd(66);
     CircleList1->addAtEnd(13);
     CircleList1->addAtEnd(14);
     CircleList1->addAtTop(22);
@@ -184,4 +202,5 @@ int main(int argc, const char * argv[]) {
     
     cout << CircleList1->valueAt(2) << endl;
     cout << "size of list : " << CircleList1->size() << endl;
+    cout << "found value : " << CircleList1->search(68) << endl;
 }
