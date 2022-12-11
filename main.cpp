@@ -90,8 +90,25 @@ public:
         return currentVal;
     }
 
-    int removeAt(){
-        return 0;
+    int removeAt(int index){
+        if(index==0){
+            return removeTop();
+        }else if(index == size()){
+            return removeBottom();
+        }
+
+        int count = 0;
+        Node* currentNode = head;
+        while (count != index-1)
+        {
+            currentNode = currentNode->next;
+            count++;
+        }
+
+        int removedVal = currentNode->next->data;
+        currentNode->next = currentNode->next->next;
+        return removedVal;
+        
     }
 
     
@@ -102,7 +119,6 @@ public:
             cout << currentNode->data << endl;
             currentNode = currentNode->next;
         }
-
         cout << currentNode->data <<endl;
         cout << "print ends" <<endl;
     }
@@ -148,6 +164,7 @@ int main(int argc, const char * argv[]) {
 
     cout << "removed bottom value : " << CircleList1->removeBottom() << endl;
     CircleList1->removeTop();
+    CircleList1->removeAt(3);
     CircleList1->print();
     // CircleList1->printLoop(20);
     
