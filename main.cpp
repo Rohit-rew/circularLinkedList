@@ -28,7 +28,6 @@ public:
             NewNode->next = head;
             return 0;
         }
-        
         return val;
     }
 
@@ -80,15 +79,12 @@ public:
 
     int removeBottom(){
         Node* currentNode = head;
-        // Node* prevNode;
         while (currentNode->next->next != head)
         {
             currentNode = currentNode->next;
-            // prevNode = currentNode;
         }
+        int currentVal = currentNode->next->data;
 
-        // prevNode->next = head;
-        int currentVal = currentNode->next->next->data;
         currentNode->next->next = NULL;
         currentNode->next = head;
         return currentVal;
@@ -150,8 +146,8 @@ int main(int argc, const char * argv[]) {
     CircleList1->addAtTop(22);
     CircleList1->addAt(77,3);
 
-    // CircleList1->removeTop();
-    cout << "removed : "  << CircleList1->removeBottom() << endl;
+    cout << "removed : " << CircleList1->removeBottom() << endl;
+    CircleList1->removeTop();
     CircleList1->print();
     // CircleList1->printLoop(20);
     
